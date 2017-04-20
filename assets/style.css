@@ -87,3 +87,10 @@ body {
     background: #e1e1e1;
     text-align: center;
   }
+  .footer .navbar-left {
+    margin-bottom: 10px;
+  }
+  .footer .navbar-left a:hover {
+    text-decoration: none;
+    color: rgb(0,45,90);
+  }
