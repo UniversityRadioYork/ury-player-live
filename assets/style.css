@@ -1,6 +1,7 @@
 body {
   background-size: cover !important;
   color: white;
+  height: 100%;
 }
 nav.navbar-inverse {
   background-color: rgba(0,45,90,0.75);
@@ -26,6 +27,9 @@ nav.navbar-inverse {
     zoom: 0.55;
     padding: 3em 0;
   }
+}
+.hidden {
+  display: none;
 }
 #show-title {
   background: rgba(0,40,129,0.5);

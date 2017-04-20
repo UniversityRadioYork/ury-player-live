@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/style.css">
-    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
     <style>
@@ -34,29 +34,36 @@
 
 	<div class="container">
 		<h3><small>You're listening to...</small></h3>
-    <header>
-				<div id="show-title">
-          <h1><?php echo($event_name); ?></h1>
-          <h2><?php echo($stream_name); ?></h2>
-				</div>
-        <div id="show-image">
-          <img src="assets/custom/<?php echo($show_image); ?>" alt="<?php echo($event_name); ?> Logo">
-        </div>
-        <div id="show-player" class="row">
-          <div id="show-player-play" class="fa fa-play col-2"></div>
-          <div id="show-player-text" class="col"><p>LIVE</p></div>
-          <div id="show-player-volume-container" class="col-4">
-            <div id="volume-icon" class="fa fa-volume-up"></div>
-            <div id="volume">
-              <div id="volumeHandle"></div>
-            </div>
-          </div>
-          <audio id="music" preload="true">
-            <source src="<?php echo($audio_url); ?>" type="audio/<?php echo($audio_type); ?>">
-              Your browser does not support our audio stream.
-          </audio>
-        </div>
+    <header id="stream-available">
+      <div id="show-title">
+        <h1><?php echo($event_name); ?></h1>
+        <h2><?php echo($stream_name); ?></h2>
+      </div>
+      <div id="show-image">
+        <img src="assets/custom/<?php echo($show_image); ?>" alt="<?php echo($event_name); ?> Logo">
+      </div>
+      <div id="show-player" class="row">
+        <div id="show-player-play" class="fa fa-play col-2" onclick="play(false)"></div>
+        <div id="show-player-text" class="col"><p>LIVE STREAM</p></div>
+        <audio id="music">
+          <source src="<?php echo($audio_url); ?>" type="audio/<?php echo($audio_type); ?>">
+            Your browser does not support our audio stream.
+        </audio>
+      </div>
     </header>
+
+    <header id="stream-unavailable" class="hidden">
+      <div id="show-title">
+        <h1><?php echo($event_name); ?></h1>
+      </div>
+      <div id="show-image">
+        <img src="assets/custom/<?php echo($show_image); ?>" alt="<?php echo($event_name); ?> Logo">
+      </div>
+      <div id="show-player" class="row">
+        <div id="show-player-text" class="col"><p><strong>This stream is currently offline.</strong></p></div>
+      </div>
+    </header>
+
 	</div>
 
   <footer class="container-fluid footer">
@@ -81,6 +88,37 @@
   </footer>
 
   <script src="assets/player.js"></script>
-
+  <script>
+    $(document).ready(function(){
+      //detection for lack of stream
+      function updateScreen() {
+        $.ajax({
+            url:'<?php echo($audio_url); ?>',
+            crossDomain : true,
+            timeout : 1000,
+            contentType: "audio/<?php echo($audio_type); ?>",
+            cache: false,
+            error: function()
+            {
+                //file doesn't exist currently.
+                $("#stream-available").hide();
+                $("#stream-unavailable").show();
+                play(false);
+            },
+            success: function()
+            {
+                $("#stream-unavailable").hide();
+                $("#stream-available").show();
+                play(true);
+            }
+        });
+        //because background-cover doesn't resise properly
+        $("body").css("height", "");
+        $("body").css("height", "100%");
+        setTimeout(function(){ updateScreen(); }, 6000);
+      }
+      updateScreen();
+    });
+  </script>
   </body>
 </html>
