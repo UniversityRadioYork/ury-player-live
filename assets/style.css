@@ -1,0 +1,88 @@
+body {
+    background-size: cover !important;
+    color: white;
+  }
+  nav.navbar-inverse {
+    background-color: rgba(0,45,90,0.75);
+  }
+  #navbar-slogan {
+    font-size: 16px;
+    margin: 5px 0;
+    vertical-align: middle;
+  }
+  .container {
+    padding: 7em 0;
+    text-align: center;
+    max-width: 400px;
+    box-sizing: content-box;
+  }
+  #show-title {
+    background: rgba(0,40,129,0.5);
+    padding: 1em;
+  }
+  #show-image {
+    background-color: rgba(0,45,90,0.75);
+    padding: 1em;
+  }
+  #show-image img {
+    width: 100%;
+  }
+  #show-player {
+    background: rgba(0,40,129,0.9);
+    margin:0;
+  }
+  #show-player-play {
+    background: #001933;
+    padding: 15px;
+    font-size: 35px;
+    text-align: center;
+  }
+  #show-player-text {
+    vertical-align: middle;
+    display: flex;
+    align-items: center;
+    text-align: center;
+  }
+  #show-player-text p {
+    font-weight: lighter;
+    font-size: 20px;
+    margin-bottom: 0px;
+    width: 100%;
+  }
+  #show-player audio {
+    display:none;
+  }
+  #show-player-volume-container {
+    vertical-align: middle;
+    display: flex;               /* establish flex container */
+    align-items: center;         /* vertically center flex items */
+  }
+
+  #volume{
+    width:100%;
+    margin-right:5px;
+    background: rgba(255,255,255,.3);
+    border-radius: 15px;
+  }
+  #volume-icon {
+    font-size: 20px;
+    margin-right: 10px;
+  }
+  /*Grabable volumeHandle*/
+  #volumeHandle{
+    cursor: pointer;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #fff;
+  }
+
+  /* Custom page footer */
+  .footer {
+    padding: 20px 30px;
+    font-size: 18px;
+    color: #777;
+    border-top: 3px solid #ddd;
+    background: #e1e1e1;
+    text-align: center;
+  }
