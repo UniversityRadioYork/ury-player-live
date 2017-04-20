@@ -10,7 +10,6 @@ var pButton = document.getElementById("show-player-play"); // play button
 
 //Play and Pause
 function play(playOnly) {
-  alert("click");
   // start music
   if (music.paused) {
     if (!sourceElement.getAttribute("src")) {
