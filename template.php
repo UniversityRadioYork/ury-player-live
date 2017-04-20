@@ -115,7 +115,7 @@
         //because background-cover doesn't resise properly
         $("body").css("height", "");
         $("body").css("height", "100%");
-        setTimeout(function(){ updateScreen(); }, 6000);
+        setTimeout(function(){ updateScreen(); }, 60000);
       }
       updateScreen();
     });
