@@ -36,6 +36,7 @@ body {
     padding: 15px;
     font-size: 35px;
     text-align: center;
+    cursor: pointer;
   }
   #show-player-text {
     vertical-align: middle;
