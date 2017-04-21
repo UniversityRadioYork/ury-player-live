@@ -1,34 +1,30 @@
-//I know this is untidy, i'll fix it later ;)
-
-
 var music = document.getElementById("music"); // id for audio element
 
 var sourceElement = document.querySelector("source");
 var originalSourceUrl = sourceElement.getAttribute("src");
 
-var pButton = document.getElementById("show-player-play"); // play button
+var pButton = "#show-player-play"; // play button
 
-//Play and Pause
-function play(playOnly) {
-  // start music
-  if (music.paused) {
+function changePlayState(forcedState) {
+  // forced state: true: play, false: stop, undefined: toggle
+  if (music.paused && forcedState !== false) {
+    // start music
     if (!sourceElement.getAttribute("src")) {
       sourceElement.setAttribute("src", originalSourceUrl);
       music.load(); // This restarts the stream download
     }
     music.play();
-    // remove play, add pause
-    pButton.className = "";
-    pButton.className = "col-2 fa fa-pause";
-  } else if (!playOnly) { // pause music
-    sourceElement.setAttribute("src", ""); //prevent's being delayed on play again.
+
+    $(pButton).removeClass("fa-play").removeClass("fa-close").addClass("fa-pause");
+  } else if (forcedState !== true) {
+    // pause music
+    sourceElement.setAttribute("src", ""); //prevents unnecisary download/playing non-live content.
     music.pause();
     // settimeout, otherwise pause event is not raised normally
     setTimeout(function () {
       music.load(); // This stops the stream from downloading
     });
-    // remove pause, add play
-    pButton.className = "";
-    pButton.className = "col-2 fa fa-play";
+
+    $(pButton).removeClass("fa-play").removeClass("fa-close").addClass("fa-pause");
   }
 }

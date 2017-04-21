@@ -1,3 +1,8 @@
+<?php
+  $stream_name = $stream_data[$stream_id][0];
+  $stream_subtitle = $stream_data[$stream_id][1];
+  $audio_url = $stream_url_base . $stream_id;
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -38,29 +43,18 @@
       <div id="show-title">
         <h1><?php echo($event_name); ?></h1>
         <h2><?php echo($stream_name); ?></h2>
+        <h2><?php echo($stream_subtitle); ?></h2>
       </div>
       <div id="show-image">
         <img src="assets/custom/<?php echo($show_image); ?>" alt="<?php echo($event_name); ?> Logo">
       </div>
       <div id="show-player" class="row">
-        <div id="show-player-play" class="fa fa-play col-2" onclick="play(false)"></div>
-        <div id="show-player-text" class="col"><p>LIVE STREAM</p></div>
+        <div id="show-player-play" class="fa fa-play col-2" onclick="play()"></div>
+        <div id="show-player-text" class="col">LOADING STREAM</div>
         <audio id="music">
           <source src="<?php echo($audio_url); ?>" type="audio/<?php echo($audio_type); ?>">
             Your browser does not support our audio stream.
         </audio>
-      </div>
-    </header>
-
-    <header id="stream-unavailable" class="hidden">
-      <div id="show-title">
-        <h1><?php echo($event_name); ?></h1>
-      </div>
-      <div id="show-image">
-        <img src="assets/custom/<?php echo($show_image); ?>" alt="<?php echo($event_name); ?> Logo">
-      </div>
-      <div id="show-player" class="row">
-        <div id="show-player-text" class="col"><p><strong>This stream is currently offline.</strong></p></div>
       </div>
     </header>
 
@@ -92,29 +86,33 @@
     $(document).ready(function(){
       //detection for lack of stream
       function updateScreen() {
-        $.ajax({
-            url:'<?php echo($audio_url); ?>',
-            crossDomain : true,
-            timeout : 1000,
-            contentType: "audio/<?php echo($audio_type); ?>",
-            cache: false,
-            error: function()
-            {
-                //file doesn't exist currently.
-                $("#stream-available").hide();
-                $("#stream-unavailable").show();
-                play(false);
-            },
-            success: function()
-            {
-                $("#stream-unavailable").hide();
-                $("#stream-available").show();
-                play(true);
-            }
-        });
-        //because background-cover doesn't resise properly
-        $("body").css("height", "");
-        $("body").css("height", "100%");
+        if (!music.playing) {
+          $.ajax({
+              url:'<?php echo($audio_url); ?>',
+              timeout : 1000,
+              cache: false,
+              error: function (xhr, textStatus, errorThrown)
+              {
+                  if (textStatus == "timeout") {
+                    //It's icecast being stupid.
+                    changePlayState(true);
+                    $("#show-player-text").text("LIVE STREAM");
+                  } else {
+                    changePlayState(false);
+                    $("#show-player-play").removeClass("fa-play").removeClass("fa-pause").addClass("fa-close");
+                    $("#show-player-text").text("STREAM OFFLINE");
+                  }
+              },
+              success: function()
+              {
+                  changePlayState(true);
+                  $("#show-player-text").text("LIVE STREAM");
+              }
+          });
+          //because background-cover doesn't resise properly
+          $("body").css("background-size", "100%");
+          $("body").css("background-size", "cover");
+        }
         setTimeout(function(){ updateScreen(); }, 60000);
       }
       updateScreen();

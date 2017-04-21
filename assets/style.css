@@ -1,7 +1,6 @@
 body {
   background-size: cover !important;
   color: white;
-  height: 100%;
 }
 nav.navbar-inverse {
   background-color: rgba(0,45,90,0.75);
@@ -49,6 +48,7 @@ nav.navbar-inverse {
 #show-player-play {
   background: #001933;
   padding: 15px;
+  height: 35px;
   font-size: 35px;
   text-align: center;
   cursor: pointer;
@@ -58,12 +58,10 @@ nav.navbar-inverse {
   display: flex;
   align-items: center;
   text-align: center;
-}
-#show-player-text p {
+  padding: 15px 30px;
+  height: 35px;
   font-weight: lighter;
   font-size: 20px;
-  margin-bottom: 0px;
-  width: 100%;
 }
 #show-player audio {
   display:none;
