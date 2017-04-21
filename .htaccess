@@ -1,0 +1,16 @@
+RewriteEngine on
+
+#remove trailing slash from URL
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} (.+)/$
+RewriteRule ^ %1 [R=302,L]
+
+#find the php for this stream
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule !.*\.php$ %{REQUEST_FILENAME}.php [QSA,L]
+
+# if requested stream isn't there
+# and isn't a directory
+# then serve an error page.
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule .* 404.php [L]
