@@ -8,7 +8,11 @@ if (isset($_GET['id'])) {
 	if (array_key_exists($stream_id,$stream_data)) {
 		$stream_title = $stream_data[$stream_id][0];
 		$stream_subtitle = $stream_data[$stream_id][1];
-		echo ($stream_prefix . $stream_title . " - " . $stream_subtitle);
+		$separator = "";
+		if (strlen($stream_subtitle) > 0) {
+			$separator = " - ";
+		}
+		echo ($stream_prefix . $stream_title . $separator . $stream_subtitle);
 	}
 }
 ?>
