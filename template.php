@@ -84,6 +84,11 @@
   <script src="assets/player.js"></script>
   <script>
     $(document).ready(function(){
+      if (window.mobileAndTabletcheck()) {
+        $("#show-player-text").text("PRESS PLAY!");
+      } else {
+        updateScreen();
+      }
       //detection for lack of stream
       function updateScreen() {
         if (music.paused) {
@@ -115,7 +120,6 @@
         }
         setTimeout(function(){ updateScreen(); }, 60000);
       }
-      updateScreen();
     });
   </script>
   </body>
