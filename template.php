@@ -90,9 +90,7 @@
         updateScreen();
       }
       function mobilePressPlay() {
-        if ($(this).hasClass("fa-play")) {
-          $("#show-player-text").text("PRESS PLAY!");
-        }
+
       }
       //detection for lack of stream
       function updateScreen(mobileOnLoad) {
@@ -105,9 +103,12 @@
               {
                   if (textStatus == "timeout") {
                     //It's icecast being stupid.
-                    changePlayState(true);
-                    if (mobileOnLoad === true) {
-                      mobilePressPlay();
+                    if (mobileOnLoad) {
+                      if ($("#show-player-play").hasClass("fa-play")) {
+                        $("#show-player-text").text("PRESS PLAY!");
+                      }
+                    } else {
+                      changePlayState(true);
                     }
                   } else {
                     changePlayState(false);
