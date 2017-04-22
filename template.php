@@ -101,7 +101,6 @@
                   if (textStatus == "timeout") {
                     //It's icecast being stupid.
                     changePlayState(true);
-                    $("#show-player-text").text("LIVE STREAM");
                   } else {
                     changePlayState(false);
                     $("#show-player-play").removeClass("fa-play").removeClass("fa-pause").addClass("fa-close");
@@ -111,7 +110,6 @@
               success: function()
               {
                   changePlayState(true);
-                  $("#show-player-text").text("LIVE STREAM");
               }
           });
           //because background-cover doesn't resise properly

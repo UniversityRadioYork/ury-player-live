@@ -21,7 +21,7 @@ function changePlayState(forcedState) {
     }
     music.load(); // This restarts the stream download
     music.play();
-
+    $(pButton).text("LIVE STREAM");
     $(pButton).removeClass("fa-play").removeClass("fa-close").addClass("fa-pause");
   } else if (!music.paused && forcedState !== true) {
     // pause music
