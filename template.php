@@ -42,7 +42,7 @@
     <header id="stream-available">
       <div id="show-title">
         <h1><?php echo($event_name); ?></h1>
-        <h2><?php echo($stream_name); ?></h2>
+        <h3><?php echo($stream_name); ?></h3>
         <h2><?php echo($stream_subtitle); ?></h2>
       </div>
       <div id="show-image">
