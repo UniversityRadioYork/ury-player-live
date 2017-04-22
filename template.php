@@ -85,13 +85,17 @@
   <script>
     $(document).ready(function(){
       if (window.mobileAndTabletcheck()) {
-        $("#show-player-text").text("PRESS PLAY!");
+        updateScreen(true);
       } else {
-        music.pause
         updateScreen();
       }
+      function mobilePressPlay() {
+        if ($(this).hasClass("fa-play")) {
+          $("#show-player-text").text("PRESS PLAY!");
+        }
+      }
       //detection for lack of stream
-      function updateScreen() {
+      function updateScreen(mobileOnLoad) {
         if (music.paused) {
           $.ajax({
               url:'<?php echo($audio_url); ?>',
@@ -102,6 +106,9 @@
                   if (textStatus == "timeout") {
                     //It's icecast being stupid.
                     changePlayState(true);
+                    if (mobileOnLoad === true) {
+                      mobilePressPlay();
+                    }
                   } else {
                     changePlayState(false);
                     $("#show-player-play").removeClass("fa-play").removeClass("fa-pause").addClass("fa-close");
@@ -111,6 +118,9 @@
               success: function()
               {
                   changePlayState(true);
+                  if (mobileOnLoad === true) {
+                    mobilePressPlay();
+                  }
               }
           });
           //because background-cover doesn't resise properly
@@ -118,11 +128,6 @@
           $("body").css("background-size", "cover");
         }
         setTimeout(function(){ updateScreen(); }, 60000);
-      }
-    });
-    $(pButton).click(function(){
-      if (!$(this).hasClass("fa-close")) {
-        updateScreen();
       }
     });
   </script>
