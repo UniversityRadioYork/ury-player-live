@@ -87,6 +87,7 @@
       if (window.mobileAndTabletcheck()) {
         $("#show-player-text").text("PRESS PLAY!");
       } else {
+        music.pause
         updateScreen();
       }
       //detection for lack of stream
@@ -117,6 +118,11 @@
           $("body").css("background-size", "cover");
         }
         setTimeout(function(){ updateScreen(); }, 60000);
+      }
+    });
+    $(pButton).click(function(){
+      if (!$(this).hasClass("fa-close")) {
+        updateScreen();
       }
     });
   </script>

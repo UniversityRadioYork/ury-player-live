@@ -35,8 +35,3 @@ function changePlayState(forcedState) {
     $(pButton).removeClass("fa-pause").removeClass("fa-close").addClass("fa-play");
   }
 }
-$(pButton).click(function(){
-  if (!$(this).hasClass("fa-close")) {
-    changePlayState();
-  }
-});
