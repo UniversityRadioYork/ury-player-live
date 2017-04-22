@@ -2,6 +2,15 @@ body {
   background-size: cover !important;
   color: white;
 }
+h1 {
+  font-size: 1.6rem;
+}
+h2 {
+  font-size: 1.4rem;
+}
+h3 {
+  font-size: 1.2rem;
+}
 nav.navbar-inverse {
   background-color: rgba(0,45,90,0.75);
 }
@@ -16,17 +25,6 @@ nav.navbar-inverse {
   max-width: 400px;
   box-sizing: content-box;
 }
-@media (max-width: 1200px) {
-  .container {
-    zoom: 0.6;
-  }
-}
-@media (max-width: 768px) {
-  .container {
-    zoom: 0.55;
-    padding: 3em 0;
-  }
-}
 .hidden {
   display: none;
 }
@@ -36,7 +34,7 @@ nav.navbar-inverse {
 }
 #show-image {
   background-color: rgba(0,45,90,0.75);
-  padding: 1em;
+  padding: 0;
 }
 #show-image img {
   width: 100%;
@@ -46,20 +44,22 @@ nav.navbar-inverse {
   margin:0;
 }
 #show-player-play {
+  vertical-align: middle;
+  align-items: center;
+  text-align: center;
   background: #001933;
-  padding: 15px;
-  height: 35px;
+  padding: 10px;
   font-size: 35px;
   text-align: center;
   cursor: pointer;
+  margin: auto 0;
 }
 #show-player-text {
   vertical-align: middle;
   display: flex;
   align-items: center;
   text-align: center;
-  padding: 15px 30px;
-  height: 35px;
+  padding: 10px 30px;
   font-weight: lighter;
   font-size: 20px;
 }
@@ -106,4 +106,18 @@ nav.navbar-inverse {
 .footer .navbar-left a:hover {
   text-decoration: none;
   color: rgb(0,45,90);
+}
+
+@media (max-width: 1600px) {
+  .container {
+    padding: 3em 0;
+  }
+}
+@media (max-width: 768px) {
+  .container {
+    padding: 2em 0;
+  }
+  #show-image img {
+    width:50%;
+  }
 }
