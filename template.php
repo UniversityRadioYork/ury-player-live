@@ -49,7 +49,7 @@
         <img src="assets/custom/<?php echo($show_image); ?>" alt="<?php echo($event_name); ?> Logo">
       </div>
       <div id="show-player" class="row">
-        <div id="show-player-play" class="fa fa-play col-2" onclick="play()"></div>
+        <div id="show-player-play" class="fa fa-play col-2"></div>
         <div id="show-player-text" class="col">LOADING STREAM</div>
         <audio id="music">
           <source src="<?php echo($audio_url); ?>" type="audio/<?php echo($audio_type); ?>">
@@ -86,7 +86,7 @@
     $(document).ready(function(){
       //detection for lack of stream
       function updateScreen() {
-        if (!music.playing) {
+        if (music.paused) {
           $.ajax({
               url:'<?php echo($audio_url); ?>',
               timeout : 1000,

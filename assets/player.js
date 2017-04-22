@@ -11,12 +11,12 @@ function changePlayState(forcedState) {
     // start music
     if (!sourceElement.getAttribute("src")) {
       sourceElement.setAttribute("src", originalSourceUrl);
-      music.load(); // This restarts the stream download
     }
+    music.load(); // This restarts the stream download
     music.play();
 
     $(pButton).removeClass("fa-play").removeClass("fa-close").addClass("fa-pause");
-  } else if (forcedState !== true) {
+  } else if (!music.paused && forcedState !== true) {
     // pause music
     sourceElement.setAttribute("src", ""); //prevents unnecisary download/playing non-live content.
     music.pause();
@@ -24,7 +24,12 @@ function changePlayState(forcedState) {
     setTimeout(function () {
       music.load(); // This stops the stream from downloading
     });
-
-    $(pButton).removeClass("fa-play").removeClass("fa-close").addClass("fa-pause");
+    // remove pause/stop icons, add play
+    $(pButton).removeClass("fa-pause").removeClass("fa-close").addClass("fa-play");
   }
 }
+$(pButton).click(function(){
+  if (!$(this).hasClass("fa-close")) {
+    changePlayState();
+  }
+});
