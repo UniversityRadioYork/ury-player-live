@@ -51,7 +51,7 @@
       <div id="show-player" class="row">
         <div id="show-player-play" class="fa fa-play col-2"></div>
         <div id="show-player-text" class="col">LOADING STREAM</div>
-        <audio id="music">
+        <audio id="player-element">
           <source src="<?php echo($audio_url); ?>" type="audio/<?php echo($audio_type); ?>">
             Your browser does not support our audio stream.
         </audio>
@@ -82,55 +82,5 @@
   </footer>
 
   <script src="assets/player.js"></script>
-  <script>
-    $(document).ready(function(){
-      if (window.mobileAndTabletcheck()) {
-        updateScreen(true);
-      } else {
-        updateScreen();
-      }
-      function mobilePressPlay() {
-
-      }
-      //detection for lack of stream
-      function updateScreen(mobileOnLoad) {
-        if (music.paused) {
-          $.ajax({
-              url:'<?php echo($audio_url); ?>',
-              timeout : 1000,
-              cache: false,
-              error: function (xhr, textStatus, errorThrown)
-              {
-                  if (textStatus == "timeout") {
-                    //It's icecast being stupid.
-                    if (mobileOnLoad) {
-                      if ($("#show-player-play").hasClass("fa-play")) {
-                        $("#show-player-text").text("PRESS PLAY!");
-                      }
-                    } else {
-                      changePlayState(true);
-                    }
-                  } else {
-                    changePlayState(false);
-                    $("#show-player-play").removeClass("fa-play").removeClass("fa-pause").addClass("fa-close");
-                    $("#show-player-text").text("STREAM OFFLINE");
-                  }
-              },
-              success: function()
-              {
-                  changePlayState(true);
-                  if (mobileOnLoad === true) {
-                    mobilePressPlay();
-                  }
-              }
-          });
-          //because background-cover doesn't resise properly
-          $("body").css("background-size", "100%");
-          $("body").css("background-size", "cover");
-        }
-        setTimeout(function(){ updateScreen(); }, 60000);
-      }
-    });
-  </script>
   </body>
 </html>
