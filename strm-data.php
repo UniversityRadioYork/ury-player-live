@@ -13,6 +13,8 @@ if (isset($_GET['id'])) {
 			$separator = " - ";
 		}
 		echo ($stream_prefix . $stream_title . $separator . $stream_subtitle);
+	} else {
+		echo ($stream_prefix . " - Offline");
 	}
 }
 ?>
