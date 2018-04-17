@@ -43,19 +43,16 @@ function changePlayState(state) {
 
 //Detection for lack of stream
 function updateScreen(mobileOnLoad) {
-  alert(playerElement.paused);
   if (playerElement.paused && playRequested) {
     $.ajax({
-      url:sourceURL,
+      url: sourceURL,
       timeout : 1000,
       cache: false,
       error: function (xhr, textStatus, errorThrown)
       {
-        alert(textStatus);
         if (textStatus == "timeout") {
           //It's probably icecast being stupid.
           streamOnline = true;
-          console.log("icecast being stupid");
           if (mobileOnLoad) {
             playRequested = false;
             $("#show-player-text").text("PRESS PLAY!");
