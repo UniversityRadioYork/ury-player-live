@@ -33,7 +33,7 @@
       <ul class="navbar-nav mr-auto">
       </ul>
       <div class="my-2 my-lg-0">
-        <div id="navbar-slogan">On Air | <strong>Online</strong> | On Demand</div>
+        <div id="navbar-slogan">On Air | <strong>Online</strong> | On Top</div>
     </div>
   </nav>
 
