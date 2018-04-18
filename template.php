@@ -26,14 +26,18 @@
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="navbar-brand">
-      <img src="assets/logo.png" height="34" alt="<?php echo($player_name); ?> Logo">
-    </div>
+    <a class="navbar-brand" href="<?php echo($homepage_url); ?>" alt="<?php echo($homepage_alt); ?>">
+      <img src="assets/logo-homepage.png" height="34" alt="<?php echo($player_name); ?> Logo">
+    </a>
+    <span class="navbar-brand divider"></span>
+    <a class="navbar-brand" href="<?php echo($player_url_base); ?>" alt="<?php echo($player_name); ?>">
+      <img src="assets/logo-player.png" height="34" alt="<?php echo($player_name); ?> Logo">
+    </a>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
       </ul>
       <div class="my-2 my-lg-0">
-        <div id="navbar-slogan">On Air | <strong>Online</strong> | On Top</div>
+        <div id="navbar-slogan">On Air | <strong>Online</strong> | On Tap</div>
     </div>
   </nav>
 
@@ -76,7 +80,7 @@
             </a>
       </div>
       <div class="navbar-right">
-        <p>Copyright &copy; 1967-2017 <a href="https://ury.org.uk" target="_blank">University Radio York</a><br>Designed by the <a href="mailto:webmaster@ury.org.uk" title="Click to email the Computing team.">URY Computing Team</a>
+        <p>Copyright &copy; 1967-2018 <a href="https://ury.org.uk" target="_blank">University Radio York</a><br>Designed by the <a href="mailto:webmaster@ury.org.uk" title="Click to email the Computing team.">URY Computing Team</a>
         <br><a href="https://www.york.ac.uk/docs/disclaimer/disclaimer.htm" target="_blank">Disclaimer</a></p>
       </div>
   </footer>

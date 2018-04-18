@@ -5,6 +5,9 @@ $player_name = "((URY)) Player";
 $event_name = "University Radio York";
 $show_image = "logo-station.png";
 $bg_image = "bg-faders.jpg";
+$homepage_url = "https://ury.org.uk/";
+$homepage_alt = "URY Homepage";
+$player_url_base = "/ury-player-live/";
 $stream_url_base = "https://ury.org.uk/audio/";
 $audio_type = "mp3";
 
