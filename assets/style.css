@@ -159,7 +159,7 @@ a .stream-list-row{
   .container {
     padding: 2em 0;
   }
-  #show-image img {
+  .full-player #show-image img {
     width:50%;
   }
 }
