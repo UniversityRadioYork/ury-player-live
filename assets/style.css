@@ -7,10 +7,14 @@ h1 {
   font-size: 1.6rem;
 }
 h2 {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
 }
 h3 {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
+}
+h4 {
+  font-size: 1.0rem;
+  font-style: italic;
 }
 nav.navbar-inverse {
   background-color: rgba(0,45,90,0.75);

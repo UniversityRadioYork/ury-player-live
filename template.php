@@ -63,12 +63,12 @@
     case "player":
   ?>
 	<div class="container">
-		<h3><small>You're listening to...</small></h3>
+		<span>You're listening to...</span>
     <header id="stream-available">
       <div id="show-title">
         <h1><?php echo($event_name); ?></h1>
-        <h3><?php echo($stream_name); ?></h3>
-        <h2><?php echo($stream_subtitle); ?></h2>
+        <h2><?php echo($stream_name); ?></h2>
+        <h3><?php echo($stream_subtitle); ?></h3>
       </div>
       <div id="show-image">
         <img src="<?php echo($player_url_base) ?>assets/custom/<?php echo($show_image); ?>" alt="<?php echo($event_name); ?> Logo">
