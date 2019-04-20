@@ -16,6 +16,8 @@
     }
     $stream_name = $stream_info[0];
     $stream_subtitle = $stream_info[1];
+    $stream_presenters = $stream_info[3];
+
     $audio_url = $stream_url_base . $stream_info[2];
     break;
   }
@@ -69,6 +71,7 @@
         <h1><?php echo($event_name); ?></h1>
         <h2><?php echo($stream_name); ?></h2>
         <h3><?php echo($stream_subtitle); ?></h3>
+        <h4><?php echo($stream_presenters); ?></h4>
       </div>
       <div id="show-image">
         <img src="<?php echo($player_url_base) ?>assets/custom/<?php echo($show_image); ?>" alt="<?php echo($event_name); ?> Logo">
