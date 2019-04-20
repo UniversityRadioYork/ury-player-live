@@ -4,7 +4,7 @@ include "config.php";
 
 //This stream's settings
 //quick override for main index page.
-$stream_id = "live-high";
+$page_type = "stream-list";
 
 include "template.php";
 ?>

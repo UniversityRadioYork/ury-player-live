@@ -88,5 +88,7 @@ $(pButton).click(function(){
 $(document).ready(function(){
   //Force user to click on play button to start,
   //since iOS etc. won't auto play.
-  updateScreen(window.mobileAndTabletcheck());
+  //Forced true because safari.
+  //updateScreen(window.mobileAndTabletcheck());
+  updateScreen(true);
 });

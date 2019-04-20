@@ -29,11 +29,30 @@ nav.navbar-inverse {
 .container {
   padding: 7em 0;
   text-align: center;
-  max-width: 400px;
+  max-width: 450px;
   box-sizing: content-box;
 }
 .hidden {
   display: none;
+}
+.btn-live {
+  margin: -0.2em 0.3em 0;
+  padding: 0.2em 0.6em;
+}
+.btn.btn-red {
+  background: #d0011b;
+  color: #fff;
+  border: 2px solid #fff;
+  animation-name: live-flash;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+@keyframes live-flash {
+    0% {background-color: #d0011b;}
+    25% {background-color: #d0011b;}
+    50% {background-color: rgb(255, 83, 83);}
+    75% {background-color: #d0011b;}
+    100% {background-color: #d0011b;}
 }
 #show-title {
   background: rgba(0,40,129,0.5);
@@ -46,10 +65,22 @@ nav.navbar-inverse {
 #show-image img {
   width: 100%;
 }
-#show-player {
+#show-player, a:nth-of-type(even) .stream-list-row {
   background: rgba(0,40,129,0.9);
   margin:0;
 }
+a:nth-of-type(odd) .stream-list-row {
+  background: rgba(0,40,129,0.7);
+  margin:0;
+}
+a .stream-list-row{
+  color: #ffffff;
+}
+.stream-list-row span {
+  color: #afd8ff;
+  margin-left: 6px;
+}
+
 #show-player-play {
   vertical-align: middle;
   align-items: center;
