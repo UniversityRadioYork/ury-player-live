@@ -7,21 +7,22 @@ $show_image = "logo-station.png";
 $bg_image = "bg-faders.jpg";
 $homepage_url = "https://ury.org.uk/";
 $homepage_alt = "URY Homepage";
-$player_url_base = "/ury-player-live/";
+$player_url_base = "/";
 $stream_url_base = "https://ury.org.uk/audio/";
-$audio_type = "mp3";
+$audio_type = "mpeg";
 
 //strm-data.php (for external stream name access)
 //will prepend the value in $stream-prefix to its output.
 //You'll probably want a space after it.
 $stream_prefix = "URY ";
 
-//webRootDir/$keyval => ["Stream Name", "Subtitle"],
+//webRootDir/$keyval => ["Stream Name", "Subtitle", "Audio Stream Name"],
 //Subtitle (Sport name etc) can be left blank ("")
 $stream_data = array(
-  "live-high" => ["Main Broadcast", ""],
+  "main" => ["Main Broadcast", "", "live-high"]
 );
 
-$stream_id = pathinfo($_SERVER['PHP_SELF'], PATHINFO_FILENAME);
-
+//Default to a player page.
+//Overriden by other page types.
+$page_type = "player";
 ?>
