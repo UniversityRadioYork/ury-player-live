@@ -32,13 +32,13 @@
 	<div>
     <header id="stream-available">
       <div class="row container-fluid">
-        <div id="show-title" class="col-8 pl-3">
+        <div id="show-title" class="col-9 pl-3">
           <h1><?php echo($event_name); ?></h1>
           <h2><?php echo($stream_name); ?></h2>
           <h3><?php echo($stream_subtitle); ?></h3>
           <h4><?php echo($stream_presenters); ?></h4>
         </div>
-        <div id="show-image" class="col-4">
+        <div id="show-image" class="col-3">
           <div id="show-player-play" class="fa fa-play"></div>
         </div>
       </div>
