@@ -31,7 +31,7 @@
   ?>
 	<div>
     <header id="stream-available">
-      <div class="row container-fluid">
+      <div class="row container-fluid full-height">
         <div id="show-title" class="col-9 pl-3">
           <h1><?php echo($event_name); ?></h1>
           <h2><?php echo($stream_name); ?></h2>

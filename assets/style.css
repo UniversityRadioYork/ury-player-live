@@ -170,6 +170,11 @@ a .stream-list-row{
   bottom: 0;
   width: 100vw;
 }
+
+.embedded-player .full-height {
+  height: 100vh;
+}
+
 .embedded-player #show-player-text {
   padding: 10px 15px;
 
