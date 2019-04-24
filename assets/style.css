@@ -63,7 +63,7 @@ nav.navbar-inverse {
   padding: 1em;
 }
 #show-image {
-  background-color: rgba(0,45,90,0.75);
+  background-color: rgba(0,40,129,0.5);
   padding: 0;
 }
 #show-image img {
@@ -162,4 +162,15 @@ a .stream-list-row{
   .full-player #show-image img {
     width:50%;
   }
+}
+
+.embedded-player #show-player-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background-color: rgba(0,40,129,0.5);
+  padding: 30px 33px;
+
 }

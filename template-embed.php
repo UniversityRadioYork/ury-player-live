@@ -45,11 +45,10 @@
           <h4><?php echo($stream_presenters); ?></h4>
         </div>
         <div id="show-image" class="col-4">
-          <img src="<?php echo($player_url_base) ?>assets/custom/<?php echo($show_image); ?>" alt="<?php echo($event_name); ?> Logo">
+          <div id="show-player-play" class="fa fa-play"></div>
         </div>
       </div>
       <div id="show-player" class="row">
-        <div id="show-player-play" class="fa fa-play col-2"></div>
         <div id="show-player-text" class="col">LOADING STREAM</div>
         <audio id="player-element">
           <source src="<?php echo($audio_url); ?>" type="audio/<?php echo($audio_type); ?>">
