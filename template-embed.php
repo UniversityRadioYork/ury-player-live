@@ -11,7 +11,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
   </head>
   <body class="embedded-player">
-
   <nav class="bg-faded navbar-inverse p-2">
     <a class="navbar-brand" target="_parent" href="<?php echo($homepage_url); ?>" alt="<?php echo($homepage_alt); ?>">
       <img src="<?php echo($player_url_base) ?>assets/logo-homepage.png" height="34" alt="<?php echo($player_name); ?> Logo">&nbsp;

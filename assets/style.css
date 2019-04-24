@@ -165,6 +165,10 @@ a .stream-list-row{
     width:50%;
   }
 }
+
+.embedded-player {
+  background: transparent;
+}
 .embedded-player #show-player {
   position: absolute;
   bottom: 0;
