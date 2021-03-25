@@ -52,6 +52,9 @@
       <div id="show-image">
         <img src="<?php echo($player_url_base) ?>assets/custom/<?php echo($show_image); ?>" alt="<?php echo($event_name); ?> Logo">
       </div>
+      <div id="show-player">
+        <a href="<?php echo($player_url_base) ?>">All Streams</a>
+      </div>
       <div id="show-player" class="row">
         <div id="show-player-play" class="fa fa-play col-2"></div>
         <div id="show-player-text" class="col">LOADING STREAM</div>
@@ -75,7 +78,7 @@
         <h3><span class="btn btn-red btn-live">LIVE</span> Right Now</h3>
       </div>
       <?php foreach ($stream_data as $stream_id => $stream) { ?>
-        <a href="<?php echo($stream_id); ?>">
+        <a href="stream?stream=<?php echo($stream_id); ?>">
           <div class="stream-list-row row">
             <div id="show-player-text" class="col"><?php echo $stream[0]; ?> <span><?php echo $stream[1]; ?></span></div>
           </div>
@@ -106,7 +109,7 @@
             </a>
       </div>
       <div class="navbar-right">
-        <p>Copyright &copy; 1967-2018 <a href="https://ury.org.uk" target="_blank">University Radio York</a><br>Designed by the <a href="mailto:webmaster@ury.org.uk" title="Click to email the Computing team.">URY Computing Team</a>
+        <p>Copyright &copy; 1967-2021 <a href="https://ury.org.uk" target="_blank">University Radio York</a><br>Designed by the <a href="mailto:webmaster@ury.org.uk" title="Click to email the Computing team.">URY Computing Team</a>
         <br><a href="https://www.york.ac.uk/docs/disclaimer/disclaimer.htm" target="_blank">Disclaimer</a></p>
       </div>
   </footer>

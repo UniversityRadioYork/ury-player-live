@@ -2,13 +2,13 @@
 //Global Config
 
 $player_name = "((URY)) Player";
-$event_name = "Roses 2019";
+$event_name = "Roses 2021";
 $show_image = "logo-roses.png";
 $bg_image = "bg-roses-1.jpg";
 $homepage_url = "https://ury.org.uk/";
 $homepage_alt = "URY Homepage";
 $player_url_base = "/";
-$stream_url_base = "https://ury.org.uk/audio/";
+$stream_url_base = "https://audio.ury.org.uk/";
 $audio_type = "mpeg";
 
 //strm-data.php (for external stream name access)
@@ -30,5 +30,3 @@ $stream_data = array(
 //Default to a player page.
 //Overriden by other page types.
 $page_type = "player";
-
-?>
