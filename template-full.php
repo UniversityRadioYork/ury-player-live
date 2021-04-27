@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title><?php echo($player_name); ?> - <?php echo($event_name); ?> <?php echo($stream_name); ?></title>
+    <title><?php echo($player_name); ?> <?php echo($event_name); ?><?php echo($stream_name ? " - " . $stream_name : ""); ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <link rel="stylesheet" href="<?php echo($player_url_base) ?>assets/font-awesome/css/font-awesome.min.css">
@@ -109,8 +109,8 @@
             </a>
       </div>
       <div class="navbar-right">
-        <p>Copyright &copy; 1967-2021 <a href="https://ury.org.uk" target="_blank">University Radio York</a><br>Designed by the <a href="mailto:webmaster@ury.org.uk" title="Click to email the Computing team.">URY Computing Team</a>
-        <br><a href="https://www.york.ac.uk/docs/disclaimer/disclaimer.htm" target="_blank">Disclaimer</a></p>
+        <p>Copyright &copy; 1967-2021 <a href="https://ury.org.uk" target="_blank">University Radio York</a> | Designed by the <a href="mailto:webmaster@ury.org.uk" title="Click to email the Computing team.">URY Computing Team</a>
+        | <a href="https://www.york.ac.uk/docs/disclaimer/disclaimer.htm" target="_blank">Disclaimer</a></p>
       </div>
   </footer>
   </body>
